@@ -5,9 +5,9 @@ document.getElementById('expenseForm').addEventListener('submit', function(e) {
     const category = document.getElementById('category').value;
     const type = document.getElementById('type').value;
 
-    // If editing, remove the old item first
+    
     if (window.editingItem) {
-        updateTotal(window.editingItem, true); // revert old value
+        updateTotal(window.editingItem, true); /
         window.editingItem.remove();
         window.editingItem = null;
     }
@@ -21,7 +21,7 @@ document.getElementById('expenseForm').addEventListener('submit', function(e) {
         </div>
     `;
 
-    // Store data for editing
+    
     expenseItem.dataset.description = description;
     expenseItem.dataset.amount = amount;
     expenseItem.dataset.category = category;
@@ -34,7 +34,7 @@ document.getElementById('expenseForm').addEventListener('submit', function(e) {
     document.getElementById('expenseForm').reset();
 });
 
-// Update total when adding or removing
+
 function updateTotal(item, revert = false) {
     let totalExpenses = parseFloat(document.getElementById('totalExpenses').textContent);
     const amount = parseFloat(item.dataset.amount);
@@ -47,13 +47,13 @@ function updateTotal(item, revert = false) {
     document.getElementById('totalExpenses').textContent = totalExpenses;
 }
 
-// Event delegation for edit and delete
+
 document.getElementById('expenseList').addEventListener('click', function(e) {
     const li = e.target.closest('li');
     if (!li) return;
 
     if (e.target.classList.contains('delete-btn')) {
-        updateTotal(li, true); // revert value
+        updateTotal(li, true);
         li.remove();
     }
 
