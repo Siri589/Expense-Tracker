@@ -7,7 +7,7 @@ document.getElementById('expenseForm').addEventListener('submit', function(e) {
 
     
     if (window.editingItem) {
-        updateTotal(window.editingItem, true); /
+        updateTotal(window.editingItem, true); 
         window.editingItem.remove();
         window.editingItem = null;
     }
